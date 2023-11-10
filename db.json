@@ -1,0 +1,43 @@
+{
+  "teachers": [
+    {
+      "firstName": "Kasule",
+      "middleName": "Jamal",
+      "lastName": "Lukenge",
+      "gender": "MALE",
+      "email": "jamalkasule123@gmail.com",
+      "phoneNumber": "0753073101",
+      "address": "Kyanja",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Kasule",
+      "middleName": "Jassim",
+      "lastName": "Kakande",
+      "gender": "MALE",
+      "email": "jassimkasule123@gmail.com",
+      "phoneNumber": "0705908699",
+      "address": "Kyanja"
+    }
+  ],
+  "streams": [
+    {
+      "id": 1,
+      "name": "East",
+      "class_teacher_id": "1"
+    },
+    {
+      "name": "North",
+      "class_teacher_id": "2",
+      "id": 2
+    }
+  ],
+  "subjects": [
+    {
+      "id": 3,
+      "name": "Science",
+      "description": "Science is a rigorous, systematic endeavor that builds and knowledge."
+    }
+  ]
+}

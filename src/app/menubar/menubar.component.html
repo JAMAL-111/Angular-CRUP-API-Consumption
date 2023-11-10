@@ -1,0 +1,53 @@
+<mat-toolbar style="background-color: rgb(89, 81, 202); color:#FFF">
+    <button (click)="drawer.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Timetable Generating System</span>
+    <span class="example-spacer"></span>
+    <button mat-button routerLink="home"> Home</button>
+    <!-- <button mat-button routerLink="input">About</button>
+    <button mat-button routerLink="card">Cards</button>
+    <button mat-button routerLink="table">Table</button>
+    <button mat-button>Contact</button>
+    <button mat-raised-button color="accent">Accent</button> -->
+    <!-- <button mat-icon-button>
+        <mat-icon matBadge="15" matBadgeColor="accent">notifications</mat-icon>
+    </button>
+    <button mat-button routerLink="login">User</button> -->
+    <button [matMenuTriggerFor]="user" mat-button>Jamal</button>
+    <mat-menu #user="matMenu">
+        <button mat-menu-item>Profile</button>
+        <hr>
+        <button mat-menu-item>Log Out</button>
+    </mat-menu>
+</mat-toolbar>
+<mat-drawer-container>
+    <mat-drawer #drawer opened="true" mode="side" position="start" style="background-color: rgb(98, 129, 214); color:#FFF; width:200px;">
+        <!--Mode can equal to side, over and push-->
+        <mat-nav-list>
+            <mat-list-item>
+                <button mat-button style="color: #FFF;" routerLink="dashboard"><mat-icon>dashboard></mat-icon>Dashboard</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button style="color: #FFF;" routerLink="teacher"><mat-icon>home></mat-icon>Teachers</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button style="color: #FFF;" routerLink="subject"><mat-icon>settings></mat-icon>Subjects</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button style="color: #FFF;" routerLink="lesson"><mat-icon>help></mat-icon>Lessons</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button style="color: #FFF;" routerLink="timeslot"><mat-icon>watch></mat-icon>Timeslots</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button style="color: #FFF;" routerLink="stream"><mat-icon>analytics></mat-icon>Stream</button>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div style="text-align: center; min-height: 600px;">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

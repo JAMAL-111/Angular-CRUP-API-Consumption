@@ -1,0 +1,29 @@
+<form class="example-form" [formGroup]="streamform" (ngSubmit)="SaveStream()">
+    <mat-card>
+    <mat-card-content>  
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="ID" formControlName="id" >
+    </mat-form-field>
+    <mat-form-field class="mat-50">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" >
+      </mat-form-field>
+
+      <mat-form-field class="mat-100" style="width: 100%;">
+        <mat-label>Class Teacher</mat-label>
+        <mat-select formControlName="class_teacher_id">
+            <mat-option value="1">Azandu Owen</mat-option>
+            <mat-option value="2">Mungoma Kevin</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+    </mat-card-content>
+    <mat-card-footer>
+    <div class="example-button-row" style="margin: 2px">
+        <button mat-raised-button color="primary">Save</button> | <a (click)="closestreampopup()" mat-raised-button color="accent">Close</a>
+    </div>
+</mat-card-footer>
+</mat-card>
+  </form>
