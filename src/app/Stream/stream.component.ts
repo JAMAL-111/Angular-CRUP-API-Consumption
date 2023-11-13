@@ -44,8 +44,8 @@ export class StreamComponent implements OnInit {
 
   LoadStream() {
     this.api.GetAllStreams().subscribe(response => {
-      this.streamdata = response;
-      //this.streamdata = response.data;
+      //this.streamdata = response;
+      this.streamdata = response.data;
       this.finaldata=new MatTableDataSource<Stream>(this.streamdata);
       this.finaldata.paginator=this._paginator;
       this.finaldata.sort=this._sort;

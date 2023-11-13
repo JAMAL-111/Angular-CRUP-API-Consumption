@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Teacher } from '../Model/Teacher';
-import { PopupComponent } from '../popup/popup.component';
+import { Timeslot } from '../Model/Timeslot';
+import { TimeslotpopupComponent } from '../timeslotpopup/timeslotpopup.component';
 import { ApiService } from '../shared/api.service';
 import * as alertify from 'alertifyjs'
 import { MatTableDataSource } from '@angular/material/table';
@@ -9,27 +9,27 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
 @Component({
-  selector: 'app-teacher',
-  templateUrl: './teacher.component.html',
-  styleUrls: ['./teacher.component.css']
+  selector: 'app-timeslot',
+  templateUrl: './timeslot.component.html',
+  styleUrls: ['./timeslot.component.css']
 })
-export class TeacherComponent implements OnInit {
+export class TimeslotComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private api: ApiService) { }
   @ViewChild(MatPaginator) _paginator!:MatPaginator;
   @ViewChild(MatSort) _sort!:MatSort;
-  teacherdata!: Teacher[];
+  timeslotdata!: Timeslot[];
   finaldata:any;
 
 
   ngOnInit(): void {
-    this.LoadTeacher();
+    this.LoadTimeslot();
   }
 
-  displayColums: string[] = ["id", "firstName", "middleName", "lastName","gender", "email", "phoneNumber", "address", "action"]
+  displayColums: string[] = ["id", "day", "startTime","endTime", "action"]
 
-  Openpopup(id: any) {
-    const _popup = this.dialog.open(PopupComponent, {
+  Opentimeslotpopup(id: any) {
+    const _popup = this.dialog.open(TimeslotpopupComponent, {
       width: '500px',
       exitAnimationDuration: '1000ms',
       enterAnimationDuration: '1000ms',
@@ -38,14 +38,15 @@ export class TeacherComponent implements OnInit {
       }
     })
     _popup.afterClosed().subscribe(r => {
-      this.LoadTeacher();
+      this.LoadTimeslot();
     });
   }
 
-  LoadTeacher() {
-    this.api.GetAllTeachers().subscribe(response => {
-      this.teacherdata = response;
-      this.finaldata=new MatTableDataSource<Teacher>(this.teacherdata);
+  LoadTimeslot() {
+    this.api.GetAllTimeslot().subscribe(response => {
+      //this.timeslotdata = response;
+      this.timeslotdata = response.data;
+      this.finaldata=new MatTableDataSource<Timeslot>(this.timeslotdata);
       this.finaldata.paginator=this._paginator;
       this.finaldata.sort=this._sort;
     });
@@ -56,13 +57,13 @@ export class TeacherComponent implements OnInit {
     this.finaldata.filter = value;
   }
 
-  EditTeacher(id: any) {
-    this.Openpopup(id);
+  EditTimeslot(id: any) {
+    this.Opentimeslotpopup(id);
   }
-  DeleteTeacher(id: any) {
-    alertify.confirm("Remove Teacher", "Are You Sure You Want To Delete This Teacher?", () => {
-      this.api.DeleteTeacherById(id).subscribe(r => {
-        this.LoadTeacher();
+  DeleteTimeslot(id: any) {
+    alertify.confirm("Remove timeslot", "Are You Sure You Want To Delete This Timeslot?", () => {
+      this.api.DeleteTimeslotById(id).subscribe(r => {
+        this.LoadTimeslot();
       });
     }, function () {
 

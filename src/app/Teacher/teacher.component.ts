@@ -44,8 +44,8 @@ export class TeacherComponent implements OnInit {
 
   LoadTeacher() {
     this.api.GetAllTeachers().subscribe(response => {
-      this.teacherdata = response;
-      //this.teacherdata = response.data;
+      //this.teacherdata = response;
+      this.teacherdata = response.data;
       this.finaldata=new MatTableDataSource<Teacher>(this.teacherdata);
       this.finaldata.paginator=this._paginator;
       this.finaldata.sort=this._sort;

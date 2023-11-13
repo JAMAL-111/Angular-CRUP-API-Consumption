@@ -6,6 +6,6 @@ export interface Teacher{
     gender:string,
     dateOfBirth: string,
     email:string,
-    phoneNumber:string,
+    phoneNumber:number,
     address:string
 }
