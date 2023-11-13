@@ -27,7 +27,9 @@ export class PopupComponent implements OnInit {
           gender:this.editdata.gender, 
           email:this.editdata.email, 
           phoneNumber:this.editdata.phoneNumber, 
-          address: this.editdata.address
+          address: this.editdata.address,
+          roleType: this.editdata.roleType,
+          dateOfBirth: this.editdata.dateOfBirth
         });
       });
     }
@@ -42,6 +44,8 @@ export class PopupComponent implements OnInit {
     email: this.builder.control('', Validators.required),
     phoneNumber: this.builder.control('', Validators.required),
     address: this.builder.control('', Validators.required),
+    roleType: this.builder.control('', Validators.required),
+    dateOfBirth: this.builder.control('', Validators.required)
   });
 
   SaveTeacher() {

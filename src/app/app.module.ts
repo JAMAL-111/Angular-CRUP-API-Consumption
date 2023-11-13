@@ -18,7 +18,8 @@ import { SubjectpopupComponent } from './subjectpopup/subjectpopup.component';
 import { SubjectComponent } from './Subject/subject.component';
 import { TimeslotComponent } from './Timeslot/timeslot.component';
 import { TimeslotpopupComponent } from './timeslotpopup/timeslotpopup.component';
-import { LessonComponent } from './Lesson/lesson.component';
+import { LessonComponent } from './lesson/lesson.component';
+import { LessonpopupComponent } from './lessonpopup/lessonpopup.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LessonComponent } from './Lesson/lesson.component';
     SubjectComponent,
     TimeslotComponent,
     TimeslotpopupComponent,
-    LessonComponent
+    LessonComponent,
+    LessonpopupComponent
   ],
   imports: [
     BrowserModule,

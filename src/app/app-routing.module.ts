@@ -4,7 +4,7 @@ import { TeacherComponent } from './Teacher/teacher.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StreamComponent } from './Stream/stream.component';
 import { SubjectComponent } from './Subject/subject.component';
-import { LessonComponent } from './Lesson/lesson.component';
+import { LessonComponent } from './lesson/lesson.component';
 import { TimeslotComponent } from './Timeslot/timeslot.component';
 
 const routes: Routes = [

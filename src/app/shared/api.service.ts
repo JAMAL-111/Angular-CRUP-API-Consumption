@@ -73,9 +73,20 @@ export class ApiService {
     return this.http.get<Stream>(this.streamurl + '/' + id);
   }
 
+  // DeleteStreamById(id: any) {
+  //   return this.http.delete(this.streamurl + '/' + id);
+  // }
+
   DeleteStreamById(id: any) {
-    return this.http.delete(this.streamurl + '/' + id);
+    return this.http.post("http://localhost:8081/api/v1/",
+    {
+      action: "delete-stream",
+      data: {
+        id: id
+      }
+    });
   }
+
 
   AddStream(streamdata: any){
     return this.http.post<any>("http://localhost:8081/api/v1/",
@@ -89,8 +100,16 @@ export class ApiService {
   //   return this.http.post(this.streamurl, streamdata);
   // }
 
-  UpdateStream(id: any, streamdata: any) {
-    return this.http.put(this.streamurl + '/' + id, streamdata);
+  // UpdateStream(id: any, streamdata: any) {
+  //   return this.http.put(this.streamurl + '/' + id, streamdata);
+  // }
+
+  UpdateStream(id:any, streamdata: any){
+    return this.http.post("http://localhost:8081/api/v1/",
+    {
+      action: "update-stream",
+      data: streamdata
+    })
   }
 
   //subject apis

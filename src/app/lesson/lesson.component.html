@@ -4,7 +4,7 @@
       <input matInput (keyup)="Filterchange($event)" placeholder="Enter Your Search Here...">
     </mat-form-field>
     <div>
-      <a mat-raised-button (click)="Openpopup('')" style="background-color: blue; margin:2%; color:white; margin-left: 660px;">Add Teacher</a>
+      <a mat-raised-button (click)="Openlessonpopup('')" style="background-color: blue; margin:2%; color:white; margin-left: 660px;">Add Lesson</a>
     </div>
   </mat-card-header>
   <mat-card-content>
@@ -29,13 +29,18 @@
         <td mat-cell *matCellDef="let element">{{element.streamName}}</td>
       </ng-container>
 
+      <ng-container matColumnDef="hoursPerWeek">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>H/w</th>
+        <td mat-cell *matCellDef="let element">{{element.hoursPerWeek}}</td>
+      </ng-container>
+
 
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action</th>
         <td mat-cell *matCellDef="let element">
             <div>
-                <!-- <a mat-raised-button (click)="EditSubject(element.id)" color="primary">Edit</a> | -->
-                <!-- <a mat-raised-button (click)="DeleteSubject(element.id)" color="accent">Delete</a> -->
+                <a mat-raised-button (click)="EditLesson(element.id)" color="primary">Edit</a> |
+                <a mat-raised-button (click)="DeleteLesson(element.id)" color="accent">Delete</a>
             </div>
         </td>
       </ng-container>

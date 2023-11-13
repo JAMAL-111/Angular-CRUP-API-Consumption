@@ -1,0 +1,36 @@
+<form class="example-form" [formGroup]="lessonform" (ngSubmit)="SaveLesson()">
+  <mat-card>
+    <mat-card-content>  
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="ID" formControlName="id" >
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+          <mat-label>Teacher's Name:</mat-label>
+          <input matInput type="number" placeholder="Enter The Teacher's Id..." formControlName="teacherId" >
+        </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Subject:</mat-label>
+        <input matInput type="number" placeholder="Enter The Subject..." formControlName="subjectId" >
+      </mat-form-field>
+      
+      <mat-form-field class="mat-50">
+        <mat-label>Stream:</mat-label>
+        <textarea matInput type="number" placeholder="Enter The Stream..." formControlName="streamId"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Number Of Hours Per Week:</mat-label>
+        <input matInput type="number" placeholder="Enter The Number Of Hours Per Week..." formControlName="hoursPerWeek" >
+      </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-footer>
+      <div class="example-button-row" style="margin: 2px">
+          <button mat-raised-button color="primary">Save</button> | <a (click)="closelessonpopup()" mat-raised-button color="accent">Close</a>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</form>

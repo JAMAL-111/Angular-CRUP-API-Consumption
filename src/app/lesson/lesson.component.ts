@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Lesson } from '../Model/Lesson';
-import { PopupComponent } from '../popup/popup.component';
+import { LessonpopupComponent } from '../lessonpopup/lessonpopup.component';
 import { ApiService } from '../shared/api.service';
 import * as alertify from 'alertifyjs'
 import { MatTableDataSource } from '@angular/material/table';
@@ -26,10 +26,10 @@ export class LessonComponent implements OnInit {
     this.LoadLesson();
   }
 
-  displayColums: string[] = ["id", "teacherName", "subjectName", "streamName", "action"]
+  displayColums: string[] = ["id", "teacherName", "subjectName", "streamName", "hoursPerWeek", "action"]
 
-  Openpopup(id: any) {
-    const _popup = this.dialog.open(PopupComponent, {
+  Openlessonpopup(id: any) {
+    const _popup = this.dialog.open(LessonpopupComponent, {
       width: '500px',
       exitAnimationDuration: '1000ms',
       enterAnimationDuration: '1000ms',
@@ -58,7 +58,7 @@ export class LessonComponent implements OnInit {
   }
 
   EditLesson(id: any) {
-    this.Openpopup(id);
+    this.Openlessonpopup(id);
   }
   DeleteLesson(id: any) {
     alertify.confirm("Delete Lesson", "Are You Sure You Want To Delete This Lesson?", () => {

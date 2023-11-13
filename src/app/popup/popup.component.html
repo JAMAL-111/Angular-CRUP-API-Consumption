@@ -36,7 +36,7 @@
 
       <mat-form-field class="mat-50">
         <mat-label>Phone Number</mat-label>
-        <input matInput placeholder="phoneNumber" formControlName="phoneNumber" >
+        <input matInput input="number" placeholder="phoneNumber" formControlName="phoneNumber" >
       </mat-form-field>
 
       <mat-form-field class="mat-50">
@@ -45,10 +45,15 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [matDatepicker]="picker" type="date" formControlName="dateOfBirth">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>  
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Role Type</mat-label>
+        <textarea matInput placeholder="Enter a role type..." formControlName="roleType"></textarea>
       </mat-form-field>
 
     </mat-card-content>

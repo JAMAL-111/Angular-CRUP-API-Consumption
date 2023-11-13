@@ -57,12 +57,14 @@ export class StreamComponent implements OnInit {
     this.finaldata.filter = value;
   }
 
-  EditTeacher(id: any) {
+  EditStream(id: any) {
     this.Openstreampopup(id);
   }
-  DeleteTeacher(id: any) {
+  DeleteStream(id: any) {
     alertify.confirm("Delete Stream", "Are You Sure You Want To Delete This Stream?", () => {
-      this.api.DeleteTeacherById(id).subscribe(r => {
+      console.log(id);
+      this.api.DeleteStreamById(id).subscribe(r => {
+        alertify.alert("Stream Deleted Successfully.");
         this.LoadStream();
       });
     }, function () {
