@@ -26,7 +26,7 @@ export class StreamComponent implements OnInit {
     this.LoadStream();
   }
 
-  displayColums: string[] = ["id", "name", "class_teacher_id", "action"]
+  displayColums: string[] = ["name", "class_teacher_id", "action"]
 
   Openstreampopup(id: any) {
     const _popup = this.dialog.open(StreampopupComponent, {

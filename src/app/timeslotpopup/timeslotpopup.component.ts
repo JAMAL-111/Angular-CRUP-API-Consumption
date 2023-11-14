@@ -37,19 +37,11 @@ export class TimeslotpopupComponent implements OnInit {
   });
 
   SaveTimeslot() {
-    if (this.timeslotform.valid) {
-      const Editid = this.timeslotform.getRawValue().id;
-      if (Editid != '' && Editid != null) {
-        this.api.UpdateTimeslot(Editid, this.timeslotform.getRawValue()).subscribe(response => {
-          this.closepopup();
-          alertify.success("Timeslot Updated Successfully.")
-        });
-      } else {
+    if (this.timeslotform.valid){
         this.api.AddTimeslot(this.timeslotform.value).subscribe(response => {
           this.closepopup();
           alertify.success("Timeslot Added Successfully.")
         });
-      }
     }
   }
 

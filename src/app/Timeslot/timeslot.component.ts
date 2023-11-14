@@ -26,7 +26,7 @@ export class TimeslotComponent implements OnInit {
     this.LoadTimeslot();
   }
 
-  displayColums: string[] = ["id", "day", "startTime","endTime", "action"]
+  displayColums: string[] = ["day", "startTime","endTime", "action"]
 
   Opentimeslotpopup(id: any) {
     const _popup = this.dialog.open(TimeslotpopupComponent, {
@@ -61,7 +61,7 @@ export class TimeslotComponent implements OnInit {
     this.Opentimeslotpopup(id);
   }
   DeleteTimeslot(id: any) {
-    alertify.confirm("Remove timeslot", "Are You Sure You Want To Delete This Timeslot?", () => {
+    alertify.confirm("Delete timeslot", "Are You Sure You Want To Delete This Timeslot?", () => {
       this.api.DeleteTimeslotById(id).subscribe(r => {
         this.LoadTimeslot();
       });

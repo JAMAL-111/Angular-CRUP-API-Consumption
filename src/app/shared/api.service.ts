@@ -23,6 +23,7 @@ export class ApiService {
   //   return this.http.get<Teacher[]>(this.apiurl);
   // }
 
+  //TEACHER APIs
   GetAllTeachers(){
     return this.http.post<{status:String,data:Teacher[]}>("http://localhost:8081/api/v1/",
    {
@@ -56,7 +57,7 @@ export class ApiService {
   }
 
 
-  //stream apis
+  //STREAM APIs
   GetAllStreams(){
     return this.http.post<{status:String,data:Stream[]}>("http://localhost:8081/api/v1/",
   {
@@ -112,7 +113,7 @@ export class ApiService {
     })
   }
 
-  //subject apis
+  //SUBJECT APIs
   GetAllSubjects(){
     return this.http.post<{status:String,data:Subject[]}>("http://localhost:8081/api/v1/",
    {
@@ -146,12 +147,19 @@ export class ApiService {
     })
   }
 
-  UpdateSubject(id: any, subjectdata: any) {
-    return this.http.put(this.subjecturl + '/' + id, subjectdata);
+  // UpdateSubject(id: any, subjectdata: any) {
+  //   return this.http.put(this.subjecturl + '/' + id, subjectdata);
+  // }
+
+  UpdateSubject(id:any, subjectdata: any){
+    return this.http.post("http://localhost:8081/api/v1/",
+    {
+      action: "update-subject",
+      data: subjectdata
+    })
   }
 
-
-  //timeslot apis
+  //TIMESLOT APIs
   GetAllTimeslot(){
     return this.http.post<{status:String,data:Timeslot[]}>("http://localhost:8081/api/v1/",
    {
@@ -180,11 +188,7 @@ export class ApiService {
     })
   }
 
-  UpdateTimeslot(id: any, timeslotdata: any) {
-    return this.http.put(this.timesloturl + '/' + id, timeslotdata);
-  }
-
-  //Lesson apis
+  //LESSON APIs
   GetAllLessons(){
     return this.http.post<{status:String,data:Lesson[]}>("http://localhost:8081/api/v1/",
    {
@@ -197,8 +201,12 @@ export class ApiService {
     return this.http.get<Lesson>(this.lessonurl + '/' + id);
   }
 
-  DeleteLessonById(id: any) {
-    return this.http.delete(this.lessonurl + '/' + id);
+  DeleteLessonById(id: {"teacherId":number, "streamId":number, "subjectId":number}) {
+    return this.http.post("http://localhost:8081/api/v1/",
+      {
+        action: "delete-lesson",
+        data: id
+      });
   }
 
   // AddTeacher(teacherdata: any) {

@@ -1,12 +1,7 @@
 <form class="example-form" [formGroup]="streamform" (ngSubmit)="SaveStream()">
     <mat-card>
     <mat-card-content>  
-
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Id</mat-label>
-      <input matInput placeholder="ID" formControlName="id" >
-    </mat-form-field>
-    <mat-form-field class="mat-50">
+      <mat-form-field class="mat-100" style="width: 100%;">
         <mat-label>Name</mat-label>
         <input matInput placeholder="Name" formControlName="name" >
       </mat-form-field>

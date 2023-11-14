@@ -26,7 +26,7 @@ export class LessonComponent implements OnInit {
     this.LoadLesson();
   }
 
-  displayColums: string[] = ["id", "teacherName", "subjectName", "streamName", "hoursPerWeek", "action"]
+  displayColums: string[] = ["teacherName", "subjectName", "streamName", "hoursPerWeek", "action"]
 
   Openlessonpopup(id: any) {
     const _popup = this.dialog.open(LessonpopupComponent, {
