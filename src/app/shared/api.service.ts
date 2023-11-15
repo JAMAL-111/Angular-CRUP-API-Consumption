@@ -33,8 +33,18 @@ export class ApiService {
  }
 
   GetTeacherById(id: any): Observable<Teacher> {
-    return this.http.get<Teacher>(this.apiurl + '/' + id);
+    return this.http.post<Teacher>("http://localhost:8081/api/v1/",
+    {
+      action: "all-teacher",
+      data: {
+        id: id
+      }
+    });
   }
+
+  // GetTeacherById(id: any): Observable<Teacher> {
+  //   return this.http.get<Teacher>(this.apiurl + '/' + id);
+  // }
 
   // DeleteTeacherById(id: any) {
   //   return this.http.delete(this.apiurl + '/' + id);
@@ -62,8 +72,16 @@ export class ApiService {
     })
   }
 
+  // UpdateTeacher(id: any, teacherdata: any) {
+  //   return this.http.put(this.apiurl + '/' + id, teacherdata);
+  // }
+
   UpdateTeacher(id: any, teacherdata: any) {
-    return this.http.put(this.apiurl + '/' + id, teacherdata);
+    return this.http.post<any>("http://localhost:8081/api/v1/",
+    {
+      action:"update-teacher",
+      data: teacherdata
+    })
   }
 
 
