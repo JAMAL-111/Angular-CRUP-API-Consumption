@@ -9,16 +9,17 @@
     </mat-form-field> -->
     <mat-form-field class="mat-50">
         <mat-label>First Name</mat-label>
-        <input matInput placeholder="First Name" formControlName="firstName" >
+        <input matInput placeholder="First Name" formControlName="firstName" required>
       </mat-form-field>
       <mat-form-field class="mat-50">
         <mat-label>Middle Name</mat-label>
-        <input matInput placeholder="middleName" formControlName="middleName" >
+        <input matInput placeholder="middleName" formControlName="middleName" required>
       </mat-form-field>
 
       <mat-form-field class="mat-50">
         <mat-label>Last Name</mat-label>
-        <input matInput placeholder="lastName" formControlName="lastName" >
+        <input matInput placeholder="lastName" formControlName="lastName" required>
+        <mat-error *ngIf="teacherform.value.lastName">Last Name is required</mat-error>
       </mat-form-field>
 
       <mat-form-field class="mat-50">
@@ -31,12 +32,8 @@
 
       <mat-form-field class="mat-50">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="email" formControlName="email" >
-      </mat-form-field>
-
-      <mat-form-field class="mat-50">
-        <mat-label>Phone Number</mat-label>
-        <input matInput input="number" placeholder="phoneNumber" formControlName="phoneNumber" >
+        <input matInput placeholder="email" formControlName="email" required>
+        <mat-error *ngIf="teacherform.value.email">Invalid email format</mat-error>
       </mat-form-field>
 
       <mat-form-field class="mat-50">
@@ -49,11 +46,13 @@
         <textarea matInput placeholder="Enter a role type..." formControlName="roleType"></textarea>
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput [matDatepicker]="picker" type="date" formControlName="dateOfBirth">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>  
+
+      <mat-form-field class="mat-50">
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="Enter a phone number.." formControlName="phoneNumber">
+        <mat-error *ngIf="teacherform.value.phoneNumber">Phone number must consist digits only and should be 10 digits long
+          <!-- <span *ngIf="teacherform.get('phoneNumber').hasError('pattern')">Phone number must be 10 digits long.</span> -->
+        </mat-error>
       </mat-form-field>
 
     </mat-card-content>

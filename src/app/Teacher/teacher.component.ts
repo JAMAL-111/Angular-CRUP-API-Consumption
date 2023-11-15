@@ -26,7 +26,7 @@ export class TeacherComponent implements OnInit {
     this.LoadTeacher();
   }
 
-  displayColums: string[] = ["id", "firstName", "lastName","gender", "dateOfBirth", "email", "phoneNumber", "action"]
+  displayColums: string[] = ["id", "firstName", "lastName","gender", "email", "phoneNumber", "action"]
 
   Openpopup(id: any) {
     const _popup = this.dialog.open(PopupComponent, {

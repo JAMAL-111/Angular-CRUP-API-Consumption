@@ -36,8 +36,18 @@ export class ApiService {
     return this.http.get<Teacher>(this.apiurl + '/' + id);
   }
 
-  DeleteTeacherById(id: any) {
-    return this.http.delete(this.apiurl + '/' + id);
+  // DeleteTeacherById(id: any) {
+  //   return this.http.delete(this.apiurl + '/' + id);
+  // }
+
+  DeleteTeacherById(id: {id:any}) {
+    return this.http.post("http://localhost:8081/api/v1/",
+      {
+        action: "delete-teacher",
+        data: {
+          id: id
+        }
+      });
   }
 
   // AddTeacher(teacherdata: any) {

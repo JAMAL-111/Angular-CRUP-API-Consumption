@@ -29,7 +29,7 @@ import { MatNativeDateModule } from '@angular/material/core'
         MatCheckboxModule,
         MatCardModule,
         MatSelectModule,
-        MatIconModule,
+        MatIconModule,  
         MatMenuModule,
         MatListModule,
         MatToolbarModule,
