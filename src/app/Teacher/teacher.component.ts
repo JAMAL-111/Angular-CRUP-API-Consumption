@@ -7,6 +7,7 @@ import * as alertify from 'alertifyjs'
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { TeacherDetailsComponent } from '../teacher-details/teacher-details.component';
 
 @Component({
   selector: 'app-teacher',
@@ -68,8 +69,28 @@ export class TeacherComponent implements OnInit {
     }, function () {
 
     })
+  }
 
+  // showTeacherDetails(teacherId: any) {
+  //   this.api.getTeacherDetails(teacherId).subscribe((teacherDetails) => {
+  //     const dialogRef = this.dialog.open(TeacherDetailsComponent, {
+  //       width: '500px',
+  //       data: teacherDetails // Pass the teacher details to the dialog
+  //     });
 
+  //     dialogRef.afterClosed().subscribe((result) => {
+  //       console.log('The dialog was closed');
+  //     });
+  //   });
+  // }
+
+  openTeacherDetailsDialog(teacherId: number): void {
+    this.api.getTeacherDetails(teacherId).subscribe((teacherData) => {
+      this.dialog.open(TeacherDetailsComponent, {
+        width: '400px',
+        data: teacherData,
+      });
+    });
   }
 
 }

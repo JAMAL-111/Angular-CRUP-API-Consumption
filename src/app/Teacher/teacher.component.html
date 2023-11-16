@@ -48,7 +48,7 @@
           <th mat-header-cell *matHeaderCellDef> Action</th>
           <td mat-cell *matCellDef="let element">
               <div>
-                  <a mat-raised-button (click)="EditTeacher(element.id)" style="background-color:rgb(15, 206, 15); color:white; width:30px;"><mat-icon>visibility</mat-icon></a> |
+                  <a mat-raised-button (click)="openTeacherDetailsDialog(element.id)" style="background-color:rgb(15, 206, 15); color:white; width:30px;"><mat-icon>visibility</mat-icon></a> |
                   <a mat-raised-button (click)="EditTeacher(element.id)" color="primary"><mat-icon>edit</mat-icon></a> |
                   <a mat-raised-button (click)="DeleteTeacher(element.id)" color="accent"><mat-icon>delete</mat-icon></a>
               </div>

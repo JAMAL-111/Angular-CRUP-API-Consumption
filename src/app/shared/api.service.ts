@@ -35,7 +35,7 @@ export class ApiService {
   GetTeacherById(id: any): Observable<Teacher> {
     return this.http.post<Teacher>("http://localhost:8081/api/v1/",
     {
-      action: "all-teacher",
+      action: "get-teacher",
       data: {
         id: id
       }
@@ -82,6 +82,18 @@ export class ApiService {
       action:"update-teacher",
       data: teacherdata
     })
+  }
+
+  // Add this method to fetch teacher details by ID
+  getTeacherDetails(id: any): Observable<Teacher> {
+    return this.http.post<Teacher>("http://localhost:8081/api/v1/",
+      {
+        action: "get-teacher",
+        data: {
+          id: id
+        }
+      }
+    );
   }
 
 

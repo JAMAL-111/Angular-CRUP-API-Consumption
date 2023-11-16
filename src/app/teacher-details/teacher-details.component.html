@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-content>
+        <!-- 
+      <p>ID: {{(teacherdata)}}</p>
+      <p>First Name: {{ teacherdata.firstName }}</p> -->
+
+        <!-- <div *ngFor="let key of getObjectKeys(teacherdata)">
+            <p>{{ key }}: {{ teacherdata[key] }}</p>
+        </div> -->
+
+        <h2>Teacher Details</h2>
+        <mat-divider></mat-divider>
+        <div style="padding-top: 20px;">
+            <p><b>First Name: </b>{{ teacherdata['data']['firstName'] }}</p>
+            <p><b>Middle Name: </b>{{ teacherdata['data']['middleName'] }}</p>
+            <p><b>Last Name: </b>{{ teacherdata['data']['lastName'] }}</p>
+            <p><b>Email: </b>{{ teacherdata['data']['email'] }}</p>
+            <p><b>Phone Number: </b>{{ teacherdata['data']['phoneNumber'] }}</p>
+            <p><b>Gender: </b>{{ teacherdata['data']['gender'] }}</p>
+        </div>
+    </mat-card-content>
+    <mat-card-footer>
+        <div class="example-button-row" style="margin: 2px">
+            <a (click)="closepopup()" mat-raised-button color="accent">Close</a>
+        </div>
+    </mat-card-footer>
+</mat-card>

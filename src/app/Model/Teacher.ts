@@ -4,8 +4,7 @@ export interface Teacher{
     middleName: string,
     lastName:string,
     gender:string,
-    dateOfBirth: string,
     email:string,
-    phoneNumber:number,
+    phoneNumber:string,
     address:string
 }
