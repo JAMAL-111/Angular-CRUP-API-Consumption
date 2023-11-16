@@ -80,7 +80,7 @@ export class ApiService {
     return this.http.post<any>("http://localhost:8081/api/v1/",
     {
       action:"update-teacher",
-      data: teacherdata
+      data: teacherdata 
     })
   }
 
@@ -170,8 +170,18 @@ export class ApiService {
     return this.http.get<Subject>(this.subjecturl + '/' + id);
   }
 
-  DeleteSubjectById(id: any) {
-    return this.http.delete(this.subjecturl + '/' + id);
+  // DeleteSubjectById(id: any) {
+  //   return this.http.delete(this.subjecturl + '/' + id);
+  // }
+
+  DeleteSubjectById(id: {id:any}) {
+    return this.http.post("http://localhost:8081/api/v1/",
+      {
+        action: "delete-subject",
+        data: {
+          id: id
+        }
+      });
   }
 
   // AddSubject(subjectdata: any) {

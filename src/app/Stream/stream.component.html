@@ -24,8 +24,8 @@
           <th mat-header-cell *matHeaderCellDef> Action</th>
           <td mat-cell *matCellDef="let element">
               <div>
-                  <a mat-raised-button (click)="EditStream(element.id)" color="primary">Edit</a> |
-                  <a mat-raised-button (click)="DeleteStream(element.id)" color="accent">Delete</a>
+                  <a mat-raised-button (click)="EditStream(element.id)" color="primary"><mat-icon>edit</mat-icon></a> |
+                  <a mat-raised-button (click)="DeleteStream(element.id)" color="accent"><mat-icon>delete</mat-icon></a>
               </div>
           </td>
         </ng-container>

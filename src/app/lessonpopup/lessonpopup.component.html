@@ -1,24 +1,43 @@
 <form class="example-form" [formGroup]="lessonform" (ngSubmit)="SaveLesson()">
   <mat-card>
     <mat-card-content>  
-      <mat-form-field class="example-full-width" appearance="fill">
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Id</mat-label>
         <input matInput placeholder="ID" formControlName="id" >
+      </mat-form-field> -->
+
+      
+      <mat-form-field>
+        <mat-label>Select Stream</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let stream of streamdata" [value]="stream.id">
+            {{ stream.name }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="mat-50">
-          <mat-label>Teacher's Name:</mat-label>
-          <input matInput type="number" placeholder="Enter The Teacher's Id..." formControlName="teacherId" >
-        </mat-form-field>
-
-      <mat-form-field class="mat-50">
+      <!-- <mat-form-field class="mat-50">
         <mat-label>Subject:</mat-label>
         <input matInput type="number" placeholder="Enter The Subject..." formControlName="subjectId" >
+      </mat-form-field> -->
+
+      <mat-form-field>
+        <mat-label>Select Subject</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let subject of subjectdata" [value]="subject.id">
+            {{ subject.name }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
       
-      <mat-form-field class="mat-50">
-        <mat-label>Stream:</mat-label>
-        <textarea matInput type="number" placeholder="Enter The Stream..." formControlName="streamId"></textarea>
+      
+      <mat-form-field>
+        <mat-label>Select A Teacher</mat-label>
+        <mat-select formControlName="teacherId" required>
+          <mat-option *ngFor="let teach of teacherdata" [value]="teach.id">
+            {{ teach.firstName }} {{ teach.lastName }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field>
