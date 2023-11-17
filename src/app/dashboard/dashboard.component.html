@@ -2,7 +2,7 @@
     <mat-card class="card-card" style="background-color: rgb(226, 44, 44); color: white; height:100px;">
         <div></div>
         <mat-card-header>
-            <mat-card-title style="font-size: 30px;"><b>15</b></mat-card-title>
+            <mat-card-title style="font-size: 30px;"><b>{{ teacherCount }}</b></mat-card-title>
             <mat-icon style="border: white; font-size: 70px; height: fit-content; width: fit-content; position: absolute; padding-left: 105px;">people</mat-icon>
         </mat-card-header>
         <mat-card-content style="padding-top: 5px;">
@@ -16,7 +16,7 @@
     <mat-card class="card-card" style="background-color: rgb(32, 161, 6); color: white; height:100px;">
         <div></div>
         <mat-card-header>
-            <mat-card-title style="font-size: 30px; margin-left: 10px;"><b>10</b></mat-card-title>
+            <mat-card-title style="font-size: 30px; margin-left: 10px;"><b>{{ subjectCount }}</b></mat-card-title>
             <mat-icon style="border: white; font-size: 70px; height: fit-content; width: fit-content; position: absolute; padding-left: 105px;">book</mat-icon>
         </mat-card-header>
         <mat-card-content style="padding-top: 5px;">
@@ -30,7 +30,7 @@
     <mat-card class="card-card" style="background-color: rgb(19, 61, 151); color: white; height:100px;">
         <div></div>
         <mat-card-header>
-            <mat-card-title style="font-size: 30px;"><b>28</b></mat-card-title>
+            <mat-card-title style="font-size: 30px;"><b>{{ lessonCount }}</b></mat-card-title>
             <mat-icon style="border: white; font-size: 70px; height: fit-content; width: fit-content; position: absolute; padding-left: 105px;">grid_on</mat-icon>
         </mat-card-header>
         <mat-card-content style="padding-top: 5px;">
@@ -44,7 +44,7 @@
     <mat-card class="card-card" style="background-color: rgb(54, 54, 53); color: white; height:100px;">
         <div></div>
         <mat-card-header>
-            <mat-card-title style="font-size: 30px;"><b>10</b></mat-card-title>
+            <mat-card-title style="font-size: 30px;"><b>{{ streamCount }}</b></mat-card-title>
             <mat-icon style="border: white; font-size: 70px; height: fit-content; width: fit-content; position: absolute; padding-left: 105px;">store_mall_directory</mat-icon>
         </mat-card-header>
         <mat-card-content style="padding-top: 5px;">
@@ -56,10 +56,11 @@
     </mat-card>
 
     <mat-card class="card-table">
-        <mat-card-header>
+        <mat-card-header style="margin-bottom:3px;">
             <h2 style="text-align:center;">List Of Class Teachers</h2>
         </mat-card-header>
-        <mat-card-content style="margin-top: 0%;">
+        <mat-divider></mat-divider>
+        <mat-card-content style="margin-top: 5px;">
             <table>
                 <tr>
                     <th>#</th>

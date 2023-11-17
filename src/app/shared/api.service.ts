@@ -19,6 +19,14 @@ export class ApiService {
   timesloturl = 'http://localhost:3000/timeslot';
   lessonurl = 'http://localhost:3000/lessons';
 
+  DashboardCounts(){
+    return this.http.post<{status:String,data:any}>("http://localhost:8081/api/v1/",
+   {
+     action: 'dashboard',
+   }
+   );
+ }
+
   // GetAllTeachers(): Observable<Teacher[]> {
   //   return this.http.get<Teacher[]>(this.apiurl);
   // }

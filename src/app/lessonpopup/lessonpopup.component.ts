@@ -10,14 +10,16 @@ import * as alertify from 'alertifyjs';
   styleUrls: ['./lessonpopup.component.css']
 })
 export class LessonpopupComponent implements OnInit {
-  streamdata:any[]=[];
-  subjectdata:any[]=[];
-  teacherdata:any[]=[];
+  streamdata: any;
+  subjectdata: any;
+  teacherdata: any;
   editdata: any;
+  collection: [] | any;
+
   constructor(private builder: FormBuilder, private dialog: MatDialog, private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public data: any) { 
-      this.subjectdata=data;
-    }
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.subjectdata = data;
+  }
 
   ngOnInit(): void {
     this.fetchStreams();
@@ -27,43 +29,50 @@ export class LessonpopupComponent implements OnInit {
       this.api.GetTeacherById(this.data.id).subscribe(response => {
         this.editdata = response;
         this.lessonform.patchValue({
-          id:this.editdata.id, 
-          teacherId:this.editdata.teacherId, 
-          subjectId:this.editdata.subjectId,
-          streamId:this.editdata.streamId,
-          hoursPerWeek:this.editdata.hoursPerWeek
+          id: this.editdata.id,
+          teacherId: this.editdata.teacherId,
+          subjectId: this.editdata.subjectId,
+          streamId: this.editdata.streamId,
+          hoursPerWeek: this.editdata.hoursPerWeek
         });
       });
     }
   }
 
-  // Utility function to convert object data to array
-  private convertObjectToArray(data: any): any[] {
-    if (data && typeof data === 'object') {
-      return Object.values(data); // Extract values into an array
+  // Function to handle and ensure data is an array
+  private handleResponseData(data: any): any {
+    console.log(data)
+    // if (Array.isArray(data)) {
+    //   return data;
+    // } else if (data && typeof data === 'object') {
+    //   return Object.values(data);
+
+    // }
+    for (const dataBundle of data) {
+      console.log(Object.entries(dataBundle))
+      this.collection.push(Object.entries(dataBundle))
+
     }
-    return [];
+    return this.collection;
   }
 
   fetchSubjects() {
     this.api.GetAllSubjects().subscribe((response: any) => {
-      // Check the structure of the API response and adjust if needed
       // this.subjectdata = response.data || []; // Assign response.data or an empty array if data is null or undefined
-      this.subjectdata = this.convertObjectToArray(response.data);
+      this.subjectdata = this.handleResponseData(response.data);
     });
   }
 
   fetchStreams() {
     this.api.GetAllStreams().subscribe((response: any) => {
-      // Check the structure of the API response and adjust if needed
-      this.streamdata = this.convertObjectToArray(response.data);
+      this.streamdata = this.handleResponseData(response.data);
     });
   }
 
   fetchTeachers() {
     this.api.GetAllTeachers().subscribe((response: any) => {
-      // Check the structure of the API response and adjust if needed
-      this.teacherdata = this.convertObjectToArray(response.data);
+      this.teacherdata = this.handleResponseData(response.data);
+      return this.teacherdata;
     });
   }
 
@@ -76,7 +85,10 @@ export class LessonpopupComponent implements OnInit {
   });
 
   SaveLesson() {
+
+    console.log(this.lessonform.value);
     if (this.lessonform.valid) {
+      console.log(this.lessonform.value);
       const Editid = this.lessonform.getRawValue().id;
       if (Editid != '' && Editid != null) {
         this.api.UpdateLesson(Editid, this.lessonform.getRawValue()).subscribe(response => {
@@ -85,6 +97,7 @@ export class LessonpopupComponent implements OnInit {
         });
       } else {
         this.api.AddLesson(this.lessonform.value).subscribe(response => {
+          console.log(this.lessonform.value);
           this.closelessonpopup();
           alertify.success("Lesson Added Successfully.")
         });

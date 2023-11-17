@@ -34,7 +34,7 @@
       <mat-form-field>
         <mat-label>Select A Teacher</mat-label>
         <mat-select formControlName="teacherId" required>
-          <mat-option *ngFor="let teach of teacherdata" [value]="teach.id">
+          <mat-option *ngFor="let teach of teacherdata" [value]="teacherdata">
             {{ teach.firstName }} {{ teach.lastName }}
           </mat-option>
         </mat-select>
