@@ -29,19 +29,19 @@
                 <button mat-button style="color: #FFF;" routerLink="dashboard"><mat-icon>dashboard></mat-icon>Dashboard</button>
             </mat-list-item>
             <mat-list-item>
-                <button mat-button style="color: #FFF;" routerLink="teacher"><mat-icon>home></mat-icon>Teachers</button>
+                <button mat-button style="color: #FFF;" routerLink="teacher" matBadge="{{ teacherCount }}" matBadgePosition="after" matBadgeColor="accent"><mat-icon>home</mat-icon>Teachers</button>
             </mat-list-item>
             <mat-list-item>
-                <button mat-button style="color: #FFF;" routerLink="subject"><mat-icon>settings></mat-icon>Subjects</button>
+                <button mat-button style="color: #FFF;" routerLink="subject" matBadge="{{ subjectCount }}" matBadgePosition="after" matBadgeColor="accent"><mat-icon>settings></mat-icon>Subjects</button>
             </mat-list-item>
             <mat-list-item>
-                <button mat-button style="color: #FFF;" routerLink="lesson"><mat-icon>help></mat-icon>Lessons</button>
+                <button mat-button style="color: #FFF;" routerLink="lesson" matBadge="{{ lessonCount }}" matBadgePosition="after" matBadgeColor="accent"><mat-icon>help></mat-icon>Lessons</button>
             </mat-list-item>
             <mat-list-item>
-                <button mat-button style="color: #FFF;" routerLink="timeslot"><mat-icon>watch></mat-icon>Timeslots</button>
+                <button mat-button style="color: #FFF;" routerLink="timeslot" matBadge="{{ timeslotCount }}" matBadgePosition="after" matBadgeColor="accent"><mat-icon>watch></mat-icon>Timeslots</button>
             </mat-list-item>
             <mat-list-item>
-                <button mat-button style="color: #FFF;" routerLink="stream"><mat-icon>analytics></mat-icon>Stream</button>
+                <button mat-button style="color: #FFF;" routerLink="stream" matBadge="{{ streamCount }}" matBadgePosition="after" matBadgeColor="accent"><mat-icon>analytics></mat-icon>Stream</button>
             </mat-list-item>
         </mat-nav-list>
     </mat-drawer>
@@ -51,3 +51,6 @@
         </div>
     </mat-drawer-content>
 </mat-drawer-container>
+<div style="background-color: blue; height:50px;">
+    <p style="margin-left: 20px; padding-top: 10px; color: white;">@Nehiira Techiees 2023.</p>
+</div>

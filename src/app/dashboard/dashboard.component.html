@@ -60,7 +60,7 @@
             <h2 style="text-align:center;">List Of Class Teachers</h2>
         </mat-card-header>
         <mat-divider></mat-divider>
-        <mat-card-content style="margin-top: 5px;">
+        <mat-card-content style="margin-top: s5px;">
             <table>
                 <tr>
                     <th>#</th>
@@ -93,37 +93,12 @@
 
     <mat-card class="card-table">
         <mat-card-header>
-            <h2 style="text-align: center;">A Graph Showing The Number Of Teachers Per Class</h2>
+            <h2 style="text-align: center;">Number Of Teachers Per Class</h2>
         </mat-card-header>
-        <mat-card-content style="margin-top: 0%;">
-            <table>
-                <tr>
-                    <th>#</th>
-                    <th style="width:40%">Name</th>
-                    <th style="padding-left:40%;">Class</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Maria Anders</td>
-                    <td style="padding-left:40%;">P.4</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Francisco Chang</td>
-                    <td style="padding-left:40%;">P.7</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Maria Anders</td>
-                    <td style="padding-left:40%;">P.4</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Francisco Chang</td>
-                    <td style="padding-left:40%;">P.7</td>
-                </tr>
-
-            </table>
+        <mat-divider></mat-divider>
+        <mat-card-content style="margin-top: 5px;">
+            <!-- Here is where I want to display the graph-->
+            <canvas id="teachersChart" width="400" height="400"></canvas>
         </mat-card-content>
     </mat-card>
 

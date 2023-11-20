@@ -11,6 +11,7 @@ import { Lesson } from '../Model/Lesson';
   providedIn: 'root'
 })
 export class ApiService {
+  data: any;
 
   constructor(private http: HttpClient) { }
   apiurl = 'http://localhost:3000/teachers';
@@ -25,7 +26,13 @@ export class ApiService {
      action: 'dashboard',
    }
    );
- }
+  }
+
+  GetTeachersPerClass(): Observable<Lesson[]> {
+    return this.http.post<Lesson[]>("http://localhost:8081/api/v1/", {
+      action: 'teachers-per-class',
+    });
+  }
 
   // GetAllTeachers(): Observable<Teacher[]> {
   //   return this.http.get<Teacher[]>(this.apiurl);
