@@ -6,6 +6,7 @@ import { Stream } from '../Model/Stream';
 import { Subject } from '../Model/Subject';
 import { Timeslot } from '../Model/Timeslot';
 import { Lesson } from '../Model/Lesson';
+import { NumberOfTeachersPerClass } from '../Model/NumberOfTeachersPerClass';
 
 @Injectable({
   providedIn: 'root'
@@ -28,8 +29,8 @@ export class ApiService {
    );
   }
 
-  GetTeachersPerClass(): Observable<Lesson[]> {
-    return this.http.post<Lesson[]>("http://localhost:8081/api/v1/", {
+  GetTeachersPerClass(): Observable<{"status":string,"data":NumberOfTeachersPerClass[]}> {
+    return this.http.post<{"status":string,"data":NumberOfTeachersPerClass[]}>("http://localhost:8081/api/v1/", {
       action: 'teachers-per-class',
     });
   }

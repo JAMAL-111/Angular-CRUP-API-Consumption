@@ -3,5 +3,6 @@ export interface Lesson{
     subjectName: string,
     streamName: string,
     hoursPerWeek: number,
-    NumberOfTeachersPerClass : number
+    class: string;
+    //numberOfTeachers: number;
 }

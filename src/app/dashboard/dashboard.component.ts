@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../shared/api.service';
 import { Stream } from '../Model/Stream';
-import { Chart } from 'chart.js';
-import { Lesson } from '../Model/Lesson';
+import { Chart } from 'chart.js/auto';
 import { NumberOfTeachersPerClass } from '../Model/NumberOfTeachersPerClass';
 
 @Component({
@@ -55,31 +54,65 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  // loadTeachersPerClassData() {
+  //   this.apiService.GetTeachersPerClass().subscribe((data: any) => {
+  //     console.log(data);
+  //     this.teachersPerClassData = data;
+  //     this.createBarGraph();
+  //   });
+  // }
+
   loadTeachersPerClassData() {
-    this.apiService.GetTeachersPerClass().subscribe((data: any) => {
-      this.teachersPerClassData = data;
-      this.createBarGraph();
-    });
+    this.apiService.GetTeachersPerClass().subscribe(data=>{
+      this.teachersPerClassData=data.data
+      if (Array.isArray(this.teachersPerClassData)) {
+        this.createBarGraph();
+      } else {
+        console.error('Teachers per class data is not an array:', this.teachersPerClassData);
+      }
+    }      
+    );
   }
+  
 
   createBarGraph() {
     const ctx = document.getElementById('teachersPerClassChart') as HTMLCanvasElement;
+    if (!Array.isArray(this.teachersPerClassData)) {
+      console.error('Teachers per class data is not an array:', this.teachersPerClassData);
+      return;
+    }
     const teachersPerClassChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: this.teachersPerClassData.map(item => item.class),
         datasets: [{
-          label: 'Number of Teachers',
           data: this.teachersPerClassData.map(item => item.numberOfTeachers),
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          backgroundColor: 'rgb(46, 110, 184)',
           borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
+          borderWidth: 1,
+          label: 'Number of Teachers'
         }]
       },
       options: {
         scales: {
+          x: {
+            //type: 'linear', 
+            //beginAtZero: true, 
+            grid: {
+              display: false, 
+            },
+          },
           y: {
-            beginAtZero: true
+            //type: 'linear', 
+            beginAtZero: true, 
+            grid: {
+              display: false,
+            },
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'top',
           }
         }
       }
