@@ -60,35 +60,28 @@
             <h2 style="text-align:center;">List Of Class Teachers</h2>
         </mat-card-header>
         <mat-divider></mat-divider>
-        <mat-card-content style="margin-top: s5px;">
-            <table>
-                <tr>
-                    <th>#</th>
-                    <th style="width:40%">Name</th>
-                    <th style="padding-left:40%;">Class</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Maria Anders</td>
-                    <td style="padding-left:40%;">P.4</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Francisco Chang</td>
-                    <td style="padding-left:40%;">P.7</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Maria Anders</td>
-                    <td style="padding-left:40%;">P.4</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Francisco Chang</td>
-                    <td style="padding-left:40%;">P.7</td>
-                </tr>
+        <mat-card-content style="margin-top: 5px;">
+            <table mat-table [dataSource]="finaldata" matSort style="width: 100%;">
+                <ng-container matColumnDef="teacherName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: 400; color:black"><h4>Class Teacher</h4></th>
+                  <td mat-cell *matCellDef="let element">{{element.teacherName}}</td>
+                </ng-container>
+        
+                <ng-container matColumnDef="streamName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: 400; color:black"><h4>Stream</h4></th>
+                  <td mat-cell *matCellDef="let element">{{element.streamName}}</td>
+                </ng-container>
+        
+                <tr mat-header-row *matHeaderRowDef="displayColums"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayColums;"></tr>
             </table>
         </mat-card-content>
+        <mat-card-footer>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+            showFirstLastButtons 
+            aria-label="Select page of periodic elements">
+          </mat-paginator>
+        </mat-card-footer>
     </mat-card>
 
     <mat-card class="card-table">
@@ -96,7 +89,7 @@
             <h2 style="padding-left:70px;">Number Of Teachers Per Class</h2>
         </mat-card-header>
         <mat-divider></mat-divider>
-        <mat-card-content style="margin-top: 5px;">
+        <mat-card-content style="margin-top: 15px; padding-top: 10px;">
             <!-- Here is where I want to display the graph-->
             <canvas id="teachersPerClassChart" width="200px" height="100px"></canvas>
         </mat-card-content>

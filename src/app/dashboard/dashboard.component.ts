@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../shared/api.service';
 import { Stream } from '../Model/Stream';
 import { Chart } from 'chart.js/auto';
 import { NumberOfTeachersPerClass } from '../Model/NumberOfTeachersPerClass';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { ClassTeacher } from '../Model/ClassTeacher';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,14 +22,21 @@ export class DashboardComponent implements OnInit {
   streamCount : number = 0;
   streamdata!: Stream[];
   teachersPerClassData: NumberOfTeachersPerClass[] = [];
+  classTeachersData!: {"teacherName":string, "streamName":string}[];
+  finaldata:any;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private dialog: MatDialog, private api: ApiService) {}
+  @ViewChild(MatPaginator) _paginator!:MatPaginator;
+  @ViewChild(MatSort) _sort!:MatSort;
 
   ngOnInit() {
     this.loadDashboardCounts();
     //this.loadStreamsData();
     this.loadTeachersPerClassData();
+    this.loadClassTeachersData();
   }
+
+  displayColums: string[] = ["teacherName", "streamName"]
 
   loadDashboardCounts() {
     this.apiService.GetAllTeachers().subscribe((data: any) => {
@@ -54,14 +66,6 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  // loadTeachersPerClassData() {
-  //   this.apiService.GetTeachersPerClass().subscribe((data: any) => {
-  //     console.log(data);
-  //     this.teachersPerClassData = data;
-  //     this.createBarGraph();
-  //   });
-  // }
-
   loadTeachersPerClassData() {
     this.apiService.GetTeachersPerClass().subscribe(data=>{
       this.teachersPerClassData=data.data
@@ -73,7 +77,21 @@ export class DashboardComponent implements OnInit {
     }      
     );
   }
-  
+
+  loadClassTeachersData(){
+    this.apiService.GetClassTeachers().subscribe(response => {
+      this.classTeachersData = response.data.classTeachers;
+      console.log(this.classTeachersData);
+      this.finaldata=new MatTableDataSource<any>(this.classTeachersData);
+      this.finaldata.paginator=this._paginator;
+      this.finaldata.sort=this._sort;
+    });
+  }
+
+  Filterchange(data:Event){
+    const value = (data.target as HTMLInputElement).value;
+    this.finaldata.filter = value;
+  }
 
   createBarGraph() {
     const ctx = document.getElementById('teachersPerClassChart') as HTMLCanvasElement;
