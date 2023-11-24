@@ -105,7 +105,7 @@ export class DashboardComponent implements OnInit {
         labels: this.teachersPerClassData.map(item => item.class),
         datasets: [{
           data: this.teachersPerClassData.map(item => item.numberOfTeachers),
-          backgroundColor: 'rgb(46, 110, 184)',
+          backgroundColor: 'rgb(89, 81, 202)',
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 1,
           label: 'Number of Teachers'

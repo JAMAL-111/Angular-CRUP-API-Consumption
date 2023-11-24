@@ -9,12 +9,12 @@ import { TimeslotComponent } from './Timeslot/timeslot.component';
 
 const routes: Routes = [
   //{path:'autocomplete', component:AutocompleteComponent}
-  {path:'teacher', component:TeacherComponent},
-  {path:'dashboard', component:DashboardComponent},
-  {path:'subject', component:SubjectComponent},
-  {path:'lesson', component:LessonComponent},
-  {path:'timeslot', component:TimeslotComponent},
-  {path:'stream', component:StreamComponent}
+  {path:'teacher', title:'TGS | Teachers', component:TeacherComponent},
+  {path:'dashboard', title:'Dashboard', component:DashboardComponent},
+  {path:'subject', title:'TGS | Subjects', component:SubjectComponent},
+  {path:'lesson', title:'TGS | Lessons', component:LessonComponent},
+  {path:'timeslot', title:'TGS | Timeslots', component:TimeslotComponent},
+  {path:'stream', title:'TGS | Streams', component:StreamComponent}
 ];
 
 @NgModule({

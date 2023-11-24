@@ -60,15 +60,15 @@
             <h2 style="text-align:center;">List Of Class Teachers</h2>
         </mat-card-header>
         <mat-divider></mat-divider>
-        <mat-card-content style="margin-top: 5px;">
+        <mat-card-content>
             <table mat-table [dataSource]="finaldata" matSort style="width: 100%;">
                 <ng-container matColumnDef="teacherName">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: 400; color:black"><h4>Class Teacher</h4></th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(89, 81, 202); font-weight: 400; color:white"><h4>Class Teacher</h4></th>
                   <td mat-cell *matCellDef="let element">{{element.teacherName}}</td>
                 </ng-container>
         
                 <ng-container matColumnDef="streamName">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: 400; color:black"><h4>Stream</h4></th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: rgb(89, 81, 202); font-weight: 400; color:white;"><h4>Stream</h4></th>
                   <td mat-cell *matCellDef="let element">{{element.streamName}}</td>
                 </ng-container>
         

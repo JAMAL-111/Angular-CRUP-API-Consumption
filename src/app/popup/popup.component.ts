@@ -20,7 +20,7 @@ export class PopupComponent implements OnInit {
   ) {}
 
   teacherform = this.builder.group({
-    id: this.builder.control({ value: '', disabled: true }),
+    //id: this.builder.control({ value: '', disabled: true }),
     firstName: this.builder.control('', Validators.required),
     middleName: this.builder.control('', Validators.required),
     lastName: this.builder.control('', Validators.required),
@@ -36,7 +36,7 @@ export class PopupComponent implements OnInit {
       this.api.GetTeacherById(this.data.id).subscribe(response => {
         this.editdata = response;
         this.teacherform.setValue({
-          id: this.editdata.id,
+          //id: this.editdata.id,
           firstName: this.editdata.firstName,
           middleName: this.editdata.middleName,
           lastName: this.editdata.lastName,
@@ -52,18 +52,18 @@ export class PopupComponent implements OnInit {
 
   SaveTeacher() {
     if (this.teacherform.valid) {
-      const Editid = this.teacherform.getRawValue().id;
-      if (Editid != '' && Editid != null) {
-        this.api.UpdateTeacher(Editid, this.teacherform.getRawValue()).subscribe(response => {
-          this.closepopup();
-          alertify.success('Teacher Details Updated Successfully.');
-        });
-      } else {
+      //const Editid = this.teacherform.getRawValue().id;
+      // if (Editid != '' && Editid != null) {
+      //   this.api.UpdateTeacher(Editid, this.teacherform.getRawValue()).subscribe(response => {
+      //     this.closepopup();
+      //     alertify.success('Teacher Details Updated Successfully.');
+      //   });
+      // } else {
         this.api.AddTeacher(this.teacherform.value).subscribe(response => {
           this.closepopup();
           alertify.success('Teacher Added Successfully.');
         });
-      }
+      //}
     }
   }
 

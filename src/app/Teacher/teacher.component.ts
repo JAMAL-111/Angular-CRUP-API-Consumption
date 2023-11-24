@@ -33,7 +33,7 @@ export class TeacherComponent implements OnInit {
     const _popup = this.dialog.open(PopupComponent, {
       width: '500px',
       exitAnimationDuration: '1000ms',
-      enterAnimationDuration: '1000ms',
+      enterAnimationDuration:'1000ms',
       data: {
         id: id
       }
