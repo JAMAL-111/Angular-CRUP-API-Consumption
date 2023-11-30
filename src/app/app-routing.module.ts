@@ -6,6 +6,8 @@ import { StreamComponent } from './Stream/stream.component';
 import { SubjectComponent } from './Subject/subject.component';
 import { LessonComponent } from './lesson/lesson.component';
 import { TimeslotComponent } from './Timeslot/timeslot.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   //{path:'autocomplete', component:AutocompleteComponent}
@@ -14,7 +16,9 @@ const routes: Routes = [
   {path:'subject', title:'TGS | Subjects', component:SubjectComponent},
   {path:'lesson', title:'TGS | Lessons', component:LessonComponent},
   {path:'timeslot', title:'TGS | Timeslots', component:TimeslotComponent},
-  {path:'stream', title:'TGS | Streams', component:StreamComponent}
+  {path:'stream', title:'TGS | Streams', component:StreamComponent},
+  {path:'login', title:'TGS | Login', component:LoginComponent},
+  {path:'register', title:'TGS | Register', component:RegisterComponent}
 ];
 
 @NgModule({

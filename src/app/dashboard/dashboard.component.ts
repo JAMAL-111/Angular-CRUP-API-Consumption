@@ -115,13 +115,21 @@ export class DashboardComponent implements OnInit {
         scales: {
           x: {
             //type: 'linear', 
-            //beginAtZero: true, 
+            //beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Classes'
+            }, 
             grid: {
               display: false, 
             },
           },
           y: {
-            //type: 'linear', 
+            //type: 'linear',
+            // title: {
+            //   display: true,
+            //   text: 'Number Of Teachers'
+            // }, 
             beginAtZero: true, 
             grid: {
               display: false,

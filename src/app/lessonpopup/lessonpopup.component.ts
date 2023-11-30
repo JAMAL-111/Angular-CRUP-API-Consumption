@@ -97,7 +97,7 @@ export class LessonpopupComponent implements OnInit {
         });
       } else {
         this.api.AddLesson(this.lessonform.value).subscribe(response => {
-          console.log(this.lessonform.value);
+          // console.log(this.lessonform.value);
           this.closelessonpopup();
           alertify.success("Lesson Added Successfully.")
         });

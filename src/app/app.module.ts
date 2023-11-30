@@ -21,6 +21,8 @@ import { TimeslotpopupComponent } from './timeslotpopup/timeslotpopup.component'
 import { LessonComponent } from './lesson/lesson.component';
 import { LessonpopupComponent } from './lessonpopup/lessonpopup.component';
 import { TeacherDetailsComponent } from './teacher-details/teacher-details.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { TeacherDetailsComponent } from './teacher-details/teacher-details.compo
     TimeslotpopupComponent,
     LessonComponent,
     LessonpopupComponent,
-    TeacherDetailsComponent
+    TeacherDetailsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
