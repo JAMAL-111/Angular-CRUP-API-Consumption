@@ -1,12 +1,6 @@
-<form class="example-form" [formGroup]="teacherform" (ngSubmit)="SaveTeacher()">
-    <mat-card>
-    <mat-card-content>  
-    
-<!-- 
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Id</mat-label>
-      <input matInput placeholder="ID" formControlName="id" >
-    </mat-form-field> -->
+<h2 style="text-align: center;">Add Teacher</h2>
+<mat-divider></mat-divider>
+<form class="example-form" [formGroup]="teacherform" (ngSubmit)="SaveTeacher()" style="padding-top: 20px;">
     <mat-form-field class="mat-50">
         <mat-label>First Name</mat-label>
         <input matInput placeholder="First Name" formControlName="firstName" required>
@@ -54,12 +48,7 @@
           <!-- <span *ngIf="teacherform.get('phoneNumber').hasError('pattern')">Phone number must be 10 digits long.</span> -->
         </mat-error>
       </mat-form-field>
-
-    </mat-card-content>
-    <mat-card-footer>
     <div class="example-button-row" style="margin: 2px">
         <button mat-raised-button color="primary">Save</button> | <a (click)="closepopup()" mat-raised-button color="accent">Close</a>
     </div>
-</mat-card-footer>
-</mat-card>
   </form>

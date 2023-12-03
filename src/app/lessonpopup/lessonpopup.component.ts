@@ -10,11 +10,10 @@ import * as alertify from 'alertifyjs';
   styleUrls: ['./lessonpopup.component.css']
 })
 export class LessonpopupComponent implements OnInit {
-  streamdata: any;
-  subjectdata: any;
-  teacherdata: any;
+  streamdata: any=[];
+  subjectdata: any=[];
+  teacherdata: any=[];
   editdata: any;
-  collection: [] | any;
 
   constructor(private builder: FormBuilder, private dialog: MatDialog, private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
@@ -25,6 +24,7 @@ export class LessonpopupComponent implements OnInit {
     this.fetchStreams();
     this.fetchSubjects();
     this.fetchTeachers();
+    
     if (this.data.id != '' && this.data.id != null) {
       this.api.GetTeacherById(this.data.id).subscribe(response => {
         this.editdata = response;
@@ -42,23 +42,16 @@ export class LessonpopupComponent implements OnInit {
   // Function to handle and ensure data is an array
   private handleResponseData(data: any): any {
     console.log(data)
-    // if (Array.isArray(data)) {
-    //   return data;
-    // } else if (data && typeof data === 'object') {
-    //   return Object.values(data);
-
-    // }
-    for (const dataBundle of data) {
-      console.log(Object.entries(dataBundle))
-      this.collection.push(Object.entries(dataBundle))
+    if (Array.isArray(data)) {
+      return data;
+    } else if (data && typeof data === 'object') {
+      return Object.values(data);
 
     }
-    return this.collection;
   }
 
   fetchSubjects() {
     this.api.GetAllSubjects().subscribe((response: any) => {
-      // this.subjectdata = response.data || []; // Assign response.data or an empty array if data is null or undefined
       this.subjectdata = this.handleResponseData(response.data);
     });
   }
@@ -81,6 +74,7 @@ export class LessonpopupComponent implements OnInit {
     teacherId: this.builder.control('', Validators.required),
     subjectId: this.builder.control('', Validators.required),
     streamId: this.builder.control('', Validators.required),
+    class: this.builder.control('', Validators.required),
     hoursPerWeek: this.builder.control('', Validators.required)
   });
 

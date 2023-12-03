@@ -18,6 +18,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   apiurl = 'http://localhost:3000/teachers';
   streamurl = 'http://localhost:3000/streams';
+  
   subjecturl = 'http://localhost:3000/subjects';
   timesloturl = 'http://localhost:3000/timeslot';
   lessonurl = 'http://localhost:3000/lessons';

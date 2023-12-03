@@ -1,26 +1,17 @@
-<form class="example-form" [formGroup]="subjectform" (ngSubmit)="SaveSubject()">
-    <mat-card>
-    <mat-card-content>  
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Id</mat-label>
-        <input matInput placeholder="ID" formControlName="id" >
-      </mat-form-field>
+<h2 style="text-align: center;">Add Subject</h2>
+<mat-divider></mat-divider>
+<form class="example-form" [formGroup]="subjectform" (ngSubmit)="SaveSubject()" style="padding-top: 20px;">
+  <mat-form-field class="mat-100">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Subject Name" formControlName="name" >
+  </mat-form-field>
 
-      <mat-form-field class="mat-50">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Subject Name" formControlName="name" >
-      </mat-form-field>
+  <mat-form-field class="mat-100">
+    <mat-label>Description</mat-label>
+    <input matInput placeholder="email" formControlName="description" >
+  </mat-form-field>
 
-      <mat-form-field class="mat-50">
-        <mat-label>Description</mat-label>
-        <input matInput placeholder="email" formControlName="description" >
-      </mat-form-field>
-
-    </mat-card-content>
-    <mat-card-footer>
-    <div class="example-button-row" style="margin: 2px">
-        <button mat-raised-button color="primary">Save</button> | <a (click)="closesubjectpopup()" mat-raised-button color="accent">Close</a>
-    </div>
-</mat-card-footer>
-</mat-card>
-  </form>
+  <div class="example-button-row" style="margin: 2px">
+      <button mat-raised-button color="primary">Save</button> | <a (click)="closesubjectpopup()" mat-raised-button color="accent">Close</a>
+  </div>
+</form>

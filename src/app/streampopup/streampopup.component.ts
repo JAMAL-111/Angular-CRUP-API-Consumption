@@ -21,7 +21,8 @@ export class StreampopupComponent implements OnInit {
         this.streamform.setValue({
           id:this.editdata.id, 
           name:this.editdata.name, 
-          class_teacher_id:this.editdata.class_teacher_id
+          class_teacher_id:this.editdata.class_teacher_id, 
+          classRoom:this.editdata.class
         });
       });
     }
@@ -30,7 +31,12 @@ export class StreampopupComponent implements OnInit {
   streamform = this.builder.group({
     id: this.builder.control({ value: '', disabled: true }),
     name: this.builder.control('', Validators.required),
-    class_teacher_id: this.builder.control('', Validators.required)
+    class_teacher_id: this.builder.control('', Validators.required),
+    classRoom: this.builder.control('', Validators.required)
+    // // id: [''],
+    // name: ['', Validators.required],
+    // class_teacher_id: ['', Validators.required],
+    // class: ['', Validators.required]
   });
 
   SaveStream() {
@@ -49,6 +55,23 @@ export class StreampopupComponent implements OnInit {
       }
     }
   }
+
+  // SaveStream() {
+  //   if (this.streamform.valid) {
+  //     const streamData = this.streamform.value;
+  //     if (streamData.id) {
+  //       this.api.UpdateStream(streamData.id, streamData).subscribe(response => {
+  //         this.closestreampopup();
+  //         alertify.success('Teacher Details Updated Successfully.');
+  //       });
+  //     } else {
+  //       this.api.AddStream(streamData).subscribe(response => {
+  //         this.closestreampopup();
+  //         alertify.success('Stream Added Successfully.');
+  //       });
+  //     }
+  //   }
+  // }
 
   closestreampopup() {
     this.dialog.closeAll();

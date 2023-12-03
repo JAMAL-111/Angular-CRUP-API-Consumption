@@ -23,6 +23,7 @@ import { LessonpopupComponent } from './lessonpopup/lessonpopup.component';
 import { TeacherDetailsComponent } from './teacher-details/teacher-details.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -50,8 +51,8 @@ import { RegisterComponent } from './register/register.component';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    DatePipe
-
+    DatePipe,
+    MatAutocompleteModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
