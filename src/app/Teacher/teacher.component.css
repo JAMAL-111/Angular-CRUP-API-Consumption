@@ -1,5 +1,5 @@
 .table-card{
-    margin: 60px 60px 60px 60px;
+    margin: 0px 60px 60px 60px;
 }
 .table{
     padding-right: 4px;
@@ -13,4 +13,9 @@
 } */
 .th{
     text-align: center;
+}
+.header{
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 60px;
 }

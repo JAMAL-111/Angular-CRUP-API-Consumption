@@ -10,11 +10,16 @@ import * as alertify from 'alertifyjs';
   styleUrls: ['./streampopup.component.css']
 })
 export class StreampopupComponent implements OnInit {
+  teacherdata: any=[];
   editdata: any;
+
   constructor(private builder: FormBuilder, private dialog: MatDialog, private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
+    this.fetchTeachers();
+
+
     if (this.data.id != '' && this.data.id != null) {
       this.api.GetStreamById(this.data.id).subscribe(response => {
         this.editdata = response;
@@ -26,6 +31,24 @@ export class StreampopupComponent implements OnInit {
         });
       });
     }
+  }
+
+  // Function to handle and ensure data is an array
+  private handleResponseData(data: any): any {
+    console.log(data)
+    if (Array.isArray(data)) {
+      return data;
+    } else if (data && typeof data === 'object') {
+      return Object.values(data);
+
+    }
+  }
+
+  fetchTeachers() {
+    this.api.GetAllTeachers().subscribe((response: any) => {
+      this.teacherdata = this.handleResponseData(response.data);
+      //return this.teacherdata;
+    });
   }
 
   streamform = this.builder.group({
